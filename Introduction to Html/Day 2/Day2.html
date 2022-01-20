@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Day 2 Html Class</title>
+</head>
+
+<body>
+
+  <!-- Block Elements -->
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Perspiciatis aliquid nostrum deleniti reiciendis ullam, error soluta, laborum dolores corrupti voluptate minima et
+    itaque quis quia pariatur suscipit officia. Placeat, beatae.</p>
+
+  <!-- Inline Elements inside Black Elements -->
+  <div>Perspiciatis <span>aliquid nostrum</span></div>
+
+  <!-- Make Inline Elements to be displayed as block Elements using div -->
+  <div><img src="../Day 1/attainuLogo.png"></div>
+
+  <!-- Inline Elements -->
+  <img src="../Day 1/attainuLogo.png">
+  <img src="../Day 1/attainuLogo.png">
+  <a target="_blank" href="https://www.amazon.in/">Go to Amazon</a>
+  <a target="_blank" href="https://www.amazon.in/">Go to Amazon</a>
+  <a target="_blank" href="https://www.amazon.in/">Go to Amazon</a>
+
+  <!-- Table Tag -->
+  <table border="1">
+    <caption>Students Marks</caption>
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2">English</td>
+        <td>60</td>
+      </tr>
+      <tr>
+        <td>Hello</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Footer</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <table border="1">
+    <tr>
+      <th> Name </th>
+      <td>Jill</td>
+    </tr>
+    <tr>
+      <th rowspan="2">Phone</th>
+      <td>555-1234</td>
+    </tr>
+    <tr>
+      <td>555-8745</td>
+    </tr>
+  </table>
+
+  <!-- Preformatted Tag -->
+  <pre>Lorem ipsum               dolor, sit amet consectetur adipisicing elit. Accusantium explicabo nemo reiciendis, asperiores eos alias sapiente natus voluptas fugit ex, necessitatibus sed dolore mollitia corporis? Pariatur eveniet sapiente excepturi aliquam.</pre>
+
+  <!-- Code Tag -->
+  <p>call method <code>methodName()</code></p>
+
+  <!-- input tag -->
+  <label for="">Enter UserName:</label>
+  <input type="text" placeholder="Enter your name" value="">
+
+  <label for="">Enter Password:</label>
+  <input type="password">
+
+  <input type="button" value="Submit">
+
+  <input type="number" min="3" max="5">
+
+  <input type="color">
+
+  <input type="date">
+
+  <!-- Select Tag -->
+  <label>Choose a month:</label>
+  <select id="selectmonth">
+    <option value="null">-------</option>
+
+    <optgroup label="Type 1">
+      <option value="volve">Volvo</option>
+      <option value="audi">Audi</option>
+      <!-- Nesting Not Possible -->
+      <optgroup label="Type 1 inside">
+        <option value="audi">Audi</option>
+      </optgroup>
+    </optgroup>
+
+    <optgroup label="Type 2">
+      <option>Mercedes</option>
+      <option>xyz</option>
+    </optgroup>
+  </select>
+  
+</body>
+</html>
