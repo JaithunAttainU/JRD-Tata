@@ -1,0 +1,22 @@
+p {
+  font-style: italic;
+  color: blue;
+}
+
+#fontSizePx {
+  font-size: 16px;
+}
+#fontSizePt {
+  font-size: 16pt;
+}
+
+#relativeUnit {
+  font-size: 10%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-decoration: overline;
+  letter-spacing: 5px;
+  word-spacing: 10px;
+  text-indent: 50px;
+}
