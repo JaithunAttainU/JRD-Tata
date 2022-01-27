@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    section[class="section"][id="section1"][image] {
+      font-size: x-small;
+    }
+
+    .section,
+    #section2,
+    h3,
+    section[class="section"][id="section1"][image] {
+      background-color: blue;
+    }
+
+
+    #divTag #para span {
+      font-size: 30px;
+    }
+
+    #divTag>p {
+      background-color: red;
+    }
+
+    /* .section1 {
+      background-color: red;
+    }
+
+    h2 {
+      background-color: red;
+    } */
+
+    /* h3+p {
+      border: 5px solid black;
+    } */
+
+    h3~p {
+      border: 5px solid black;
+    }
+
+    /* * {
+
+    } */
+  </style>
+</head>
+
+<body>
+
+  <section id="section1" class="section">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est veniam, molestiae eaque maiores adipisci eligendi at
+      dolore, eveniet pariatur, quisquam nam illum velit temporibus cumque aperiam illo eum ut officia?</p>
+  </section>
+
+  <section id="section2" image>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est veniam, molestiae eaque maiores adipisci eligendi at
+      dolore, eveniet pariatur, quisquam nam illum velit temporibus cumque aperiam illo eum ut officia?</p>
+  </section>
+
+  <section>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est veniam, molestiae eaque maiores adipisci eligendi at
+      dolore, eveniet pariatur, quisquam nam illum velit temporibus cumque aperiam illo eum ut officia?</p>
+  </section>
+
+  <h1>
+    H1
+  </h1>
+  <h2>
+    H2
+  </h2>
+  <h3>
+    H3
+  </h3>
+
+  <p id="para">Outside Div Tag</p>
+  <p> Next Paragraph Tag</p>
+  <div>
+    Sample
+  </div>
+
+  <p>
+    Para
+  </p>
+  <div id="divTag">
+    <p id="para"><span>Span Tag</span>Immediate Child</p>
+    <p id="para">Immediate Child</p>
+
+    <p>Immediate Child</p>
+    <p>Immediate Child</p>
+    <div>
+      <p>Nested Child</p>
+      <div>
+        <p id="para">bhjdwbdh</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>
+    H3
+  </h3>
+
+  <p id="para">Outside Div Tag</p>
+</body>
+
+</html>

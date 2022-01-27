@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #container {
+      background-color: lightblue;
+      padding: 5px;
+      margin: 50px;
+      position: relative;
+    }
+
+    .box {
+      height: 100px;
+      width: 100px;
+      background-color: red;
+      margin: 5px;
+    }
+
+    .box-1 {
+      position: sticky;
+      top: 20px;
+      right: 40px;
+      opacity: 0.5;
+      background-color: yellow;
+    }
+
+    #inline {
+      display: inline;
+    }
+
+    #block {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <div class="box">Item 1</div>
+    <div class="box">Item 2</div>
+    <div class="box">Item 3</div>
+    <div class="box">Item 4</div>
+    <div class="box box-1">Item 5</div>
+    <div class="box">Item 6</div>
+    <div class="box">Item</div>
+    <div class="box">Item</div>
+    <div class="box">Item</div>
+    <div class="box">Item</div>
+  </div>
+
+  <span id="block">
+    Span
+  </span>
+</body>
+
+</html>
