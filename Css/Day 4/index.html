@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    /* div {
+      width: 40%;
+      margin: auto;
+    }
+
+    div:hover {
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+
+    } */
+
+    /* .para:hover {
+      font-size: 50px;
+    }
+
+    p::first-letter {
+      background-color: aqua;
+    }
+
+    div::after {
+      content: '\f099';
+      font-family: FontAwesome;
+    } */
+
+    #box-shadow {
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      /* background-color: lightblue; */
+      /* box-shadow: 5px 5px 3px blue inset, 5px 5px 6px red, 5px 5px 10px green; */
+      /* transform: rotate(45deg); */
+      /* transition: width 2s ease 1s, background-color 3s linear 0s; */
+
+      /* transform: skewY(45deg);
+      transition-property: all;
+      transition-duration: 2s;
+      transition-delay: 0s;
+      transition-timing-function: linear; */
+
+      background-image: repeating-linear-gradient(to top, red, blue 10%, orange 10%);
+    }
+
+    html {
+      background-color: black;
+
+    }
+
+    #text-reflection {
+      color: white;
+      position: relative;
+    }
+
+    #text-reflection::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: 'Hello';
+      transform: rotateX(180deg);
+      transform-origin: bottom;
+      line-height: 20px;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(to top, white, transparent);
+      color: transparent;
+    }
+
+    /* background-color: gold;
+      width: 200px; */
+    /* transform: rotate(90deg) scaleY(1.5) translateY(40px) skewX(45deg); */
+
+
+    div {
+      font-size: 5px;
+    }
+
+    #spec {
+      font-size: 10px;
+    }
+
+    #spec.specClass div {
+      font-size: 20px;
+    }
+
+    div {
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div>Click ME!</div>
+
+  <p class="para">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio numquam accusamus odit dolore! Fuga ullam deleniti
+    animi voluptate. Facere non illo quod officiis sed? Dolores sed aperiam numquam voluptates optio?
+  </p>
+
+  <div>Profile</div> -->
+
+  <!-- <div id="spec" class="specClass">
+    Specificity
+  </div> -->
+
+  <div id="box-shadow">
+    Text Shadow
+  </div>
+
+  <div id="text-reflection">
+    Hello
+  </div>
+</body>
+
+</html>
