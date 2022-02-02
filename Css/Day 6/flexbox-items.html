@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Box Items Properties</title>
+  <style>
+    #flex-container {
+      background-color: lightblue;
+      display: flex;
+      height: 500px;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    .flex-items {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+      /* flex-grow: 1; */
+      /* flex-grow: 1; default value 0 */
+      /* flex-shrink: 8; default value 1 */
+      flex-shrink: 0;
+    }
+
+    .box-2 {
+      /* flex-basis: 150px;
+      flex-grow: 0;
+
+      flex: 3 2 200px */
+      /* 0 1 auto */
+      /* flex-grow: 2; */
+      /* flex-shrink: 2; */
+      order: 3;
+      /* align-self: stretch; */
+    }
+
+    .box-3 {
+      /* flex-grow: 3; */
+      /* flex-shrink: 3; */
+      order: -1
+    }
+  </style>
+</head>
+
+<body>
+  <div id="flex-container">
+    <div class="flex-items">1</div>
+    <section class="flex-items box-2">2</section>
+    <div class="flex-items box-3">3</div>
+    <div class="flex-items">4</div>
+    <div class="flex-items">5</div>
+    <div class="flex-items">6</div>
+    <div class="flex-items">7</div>
+    <div class="flex-items">8</div>
+    <div class="flex-items">9</div>
+    <div class="flex-items">5</div>
+    <div class="flex-items">6</div>
+    <div class="flex-items">7</div>
+    <div class="flex-items">8</div>
+    <div class="flex-items">9</div>
+  </div>
+</body>
+
+</html>
