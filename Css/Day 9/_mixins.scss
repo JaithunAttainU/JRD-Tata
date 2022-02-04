@@ -1,0 +1,7 @@
+@mixin flexBox($bgColor: black, $fontSize) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bgColor;
+  font-size: $fontSize;
+}

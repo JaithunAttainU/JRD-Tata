@@ -1,0 +1,54 @@
+.btn-secondary, .btn-primary {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: blue;
+  font-size: 20px;
+}
+
+.btn-secondary {
+  background-color: grey;
+  font-size: 20px;
+}
+
+.btn-secondary {
+  color: red;
+}
+
+section {
+  color: blueviolet;
+}
+section p {
+  font-size: 30px;
+}
+section p span {
+  font-size: 62.5%;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  font-size: 5px;
+}
+
+.sectionFlexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  font-size: 5px;
+  font-size: medium;
+}
+
+.divFlexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  font-size: 3px;
+}/*# sourceMappingURL=myFirstSass.css.map */

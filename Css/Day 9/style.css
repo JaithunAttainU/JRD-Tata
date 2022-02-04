@@ -1,0 +1,16 @@
+:root {
+  --primaryColor: blue;
+  --fontSizeRegular: 20px;
+  --fontSizeLarge: 33px;
+}
+
+/* .heading {
+  background-color: var(--primaryColor);
+  font-size: var(--fontSizeLarge);
+} */
+
+.section {
+  --primaryColor: red;
+  background-color: var(--primaryColor);
+  font-size: calc(var(--fontSizeRegular) - 50px);
+}

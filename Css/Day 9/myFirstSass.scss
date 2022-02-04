@@ -1,0 +1,51 @@
+@use 'colors';
+@use 'fontSize';
+@use 'mixins';
+@use "sass:math";
+
+$marginTop: 10px;
+
+%btn {
+  padding: 5px;
+  margin:5px;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  @extend %btn;
+  background-color: colors.$primaryColor;
+  font-size: fontSize.$fontSizeRegular;
+}
+
+.btn-secondary {
+  @extend %btn;
+  background-color: colors.$secondaryColor;
+  font-size: fontSize.$fontSizeRegular;
+}
+
+.btn-secondary {
+  color: red;
+}
+
+section {
+  color: blueviolet;
+  p {
+    font-size: 30px;
+    span {
+      font-size: math.div($red, 960px) * 100%;
+    }
+  }
+}
+
+.flexBox {
+  @include mixins.flexBox(green, 5px);
+}
+
+.sectionFlexBox {
+  @include mixins.flexBox(blue, 5px);
+  font-size: medium;
+}
+
+.divFlexBox {
+  @include mixins.flexBox(grey, 3px);
+}
