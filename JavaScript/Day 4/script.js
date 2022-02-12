@@ -54,7 +54,7 @@ animals.lastIndexOf('lion')
 
 var numbers = [65, 45, 23, 76]
 console.log(numbers.sort(function (a, b) {
-  return 0;
+  return b - a;
 }))
 
 setTimeout(function () {
