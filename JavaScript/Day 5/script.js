@@ -51,7 +51,7 @@ var users = [
 //["John", Ram, sheela, sita]
 
 var namesList = users.map(function (elemet) {
-  return elemet.hobbies
+  return elemet.name
 })
 
 
@@ -153,7 +153,7 @@ student.write = function () {
 //delete
 
 delete student.name;
-delete student;
+// delete student;
 
 var student2 = { //literal
   name: 'Rahul',
@@ -202,3 +202,65 @@ function StudentDetails(studentName, studentAge, writeFunc) {
 // 3.The value of this is returned.
 var st1 = new StudentDetails("dcsdc", 4)
 st1.age = 8;
+
+var product = {
+  "id": 1,
+  "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+  "price": 109.95,
+  "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+  "category": "men's clothing",
+  "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+  "rating": {
+    "rate": 3.9,
+    "count": 120
+  }
+}
+
+
+function Product(id, title, category, price, rating) {
+  this.id = id;
+  this.title = title;
+  this.category = category;
+  this.price = price;
+  this.rating = rating;
+  this.printDetails = function () {
+    console.log("Title:" + this.title + "\nPrice:" + this.price)
+  }
+}
+
+var p1 = new Product(1, "Product1", "clothing", 100, { rate: 4, count: 100 })
+var p2 = new Product(2, "Product2", "jewelry", 200, { rate: 3, count: 200 })
+var p3 = new Product(3, "Product3", "jewelry", 200, { rate: 3, count: 200 })
+
+var products = [p1, p2];
+
+// clothing: 1
+// jewelry: 2
+var productList = products.map(function (item) {
+  return item.title
+})
+
+var result = 0
+products.forEach(function (item) {
+  if (result[item.category]) {
+    result[item.category]++;
+  } else {
+    result[item.category] = 1
+  }
+})
+
+var results = products.reduce(function (acc, item) {
+  if (acc[item.category]) {
+    acc[item.category]++;
+  } else {
+    acc[item.category] = 1
+  }
+  return acc;
+}, {})
+
+var ratingGreaterThan4 = products.filter(function (item) {
+  if (item.rating && item.rating.rate) {
+    return true;
+  }
+  return false;
+})

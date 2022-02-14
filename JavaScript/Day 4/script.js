@@ -1,11 +1,11 @@
 //Object 
-var studentDetails = {
+var studentDetails = { //literal
   name: 'Brian',
   address: "sdefre"
 }
 
 var listOfStudents = new Array("frefe", "wefer");
-var classNames = ['dwfer', "frerfe", 'efder'];
+var classNames = ['dwfer', "frerfe", 'efder']; //literal
 
 classNames[6] = "sdfve";
 //access
@@ -31,7 +31,7 @@ console.log(listOfStudents.toString())
 
 var numbers = [1, 2, 5, 4]
 console.log(numbers.join("-"))
-console.log(numbers.reverse())
+console.log(numbers.reverse())//in - place
 
 var newNumbers = [6, 7, 2, 4]
 
@@ -54,7 +54,7 @@ animals.lastIndexOf('lion')
 
 var numbers = [65, 45, 23, 76]
 console.log(numbers.sort(function (a, b) {
-  return b - a;
+  return a - b;
 }))
 
 setTimeout(function () {
@@ -66,3 +66,15 @@ setTimeout(function () {
 //filter
 //reduce
 //every & some
+
+var numbers = [4, 5]; //true
+
+var evenResult = numbers.some(function (currItem) {
+  return currItem % 2 == 0
+})
+
+var studentList = ['Addhil', 'Rahul', 'Rishav']
+var studentString = studentList.reduceRight(function (prevValue, currValue, currIndex) {
+  prevValue += currValue;
+  return prevValue;
+}, '')

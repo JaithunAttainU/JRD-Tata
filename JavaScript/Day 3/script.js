@@ -2,17 +2,17 @@
 //Global & Local Scope
 var num = 300;
 function a() {
-  num = 100;
-  // console.log(num);
+  num = 100; 
+  // console.log(num); //100
 }
 
 function b() {
   var num = 200;
-  // console.log(num);
+  // console.log(num); 200
 }
 a();
 b();
-//console.log(num);
+//console.log(num); 100
 
 var age;
 
@@ -90,5 +90,16 @@ function add(num1, num2) {
     console.log(result);
   }
 }
-var answer = add(4, 5);
-answer();
+var answer = add(4, 5)();
+
+//IIFE - Immediately invoked function expressions
+(function () {
+  console.log("mfm")
+})();
+
+
+setTimeout(function () {
+  console.log("hello")
+}, 5000)
+
+console.log("After setTimeeout")
