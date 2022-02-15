@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grandparent {
+      height: 500px;
+      width: 500px;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .parent {
+      height: 300px;
+      width: 300px;
+      background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .child {
+      height: 100px;
+      width: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Event Bubbling -->
+  <div class="grandparent">
+    <div class="parent">
+      <div class="child">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PreventDefault Behaviour -->
+  <a href="www.google.com" id="linkTag">Go to ...</a>
+  <form id="form">
+    <input name="text" type="text">
+    <button type="submit">Submit Form</button>
+  </form>
+
+  <script>
+
+    var grandparentEle = document.getElementsByClassName('grandparent')[0];
+
+    grandparentEle.addEventListener('click', function () {
+      console.log("GrandParent is clicked")
+    })
+
+    var parentEle = document.getElementsByClassName('parent')[0];
+
+    parentEle.addEventListener('click', function (event) {
+      // event.stopPropagation();
+      console.log("Parent is clicked")
+    })
+
+    var childEle = document.getElementsByClassName('child')[0];
+
+    childEle.addEventListener('click', function (event) {
+      // console.log(event.target)
+      // event.stopPropagation();
+      console.log("Child handler 1 is clicked")
+    })
+
+    childEle.addEventListener('click', function (event) {
+      // event.stopPropagation();
+      event.stopImmediatePropagation()
+
+      console.log("Child handler 2 is clicked")
+    })
+
+    document.addEventListener('click', function () {
+      console.log("Document")
+    })
+
+    //Prevent Default Example
+    var linkTag = document.getElementById('linkTag');
+    linkTag.addEventListener('click', function (event) {
+      event.preventDefault();
+      console.log("Link tag clicked")
+    })
+
+    var formEle = document.getElementById('form');
+    formEle.addEventListener('submit', function (event) {
+      event.preventDefault()
+      console.log('Form Submitted')
+    })
+  </script>
+</body>
+
+</html>
