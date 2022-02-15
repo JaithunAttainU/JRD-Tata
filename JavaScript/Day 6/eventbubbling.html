@@ -62,34 +62,40 @@
     var parentEle = document.getElementsByClassName('parent')[0];
 
     parentEle.addEventListener('click', function (event) {
-      // event.stopPropagation();
+      event.stopPropagation();
       console.log("Parent is clicked")
     })
 
     var childEle = document.getElementsByClassName('child')[0];
 
     childEle.addEventListener('click', function (event) {
-      // console.log(event.target)
-      // event.stopPropagation();
+      // console.log(event)
+      event.stopPropagation();
       console.log("Child handler 1 is clicked")
     })
 
     childEle.addEventListener('click', function (event) {
       // event.stopPropagation();
-      event.stopImmediatePropagation()
-
+      //event.stopImmediatePropagation()
+      event.stopImmediatePropagation();
       console.log("Child handler 2 is clicked")
-    })
+    });
 
+      childEle.addEventListener('click', function (event) {
+        // event.stopPropagation();
+        // event.stopImmediatePropagation();
+        console.log("Child handler 3 is clicked")
+      });
+    
     document.addEventListener('click', function () {
       console.log("Document")
     })
-
     //Prevent Default Example
     var linkTag = document.getElementById('linkTag');
     linkTag.addEventListener('click', function (event) {
       event.preventDefault();
       console.log("Link tag clicked")
+      alert("Link tag is clicked")
     })
 
     var formEle = document.getElementById('form');
