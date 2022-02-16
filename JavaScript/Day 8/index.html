@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>Your Position is: <span id="location"></span></h3>
+  <button id="get-location">Get Location</button>
+  <button id="clipboard">ClipBoard</button>
+
+  <script>
+    var geloLocationEle = document.getElementById('get-location');
+    var positionEle = document.getElementById('location');
+    var clipBoardEle = document.getElementById('clipboard');
+
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      positionEle.innerText = `Latitude: ${latitude} Longitude: ${longitude}`
+    }
+
+    function error(error) {
+      console.log(error)
+    }
+
+    geloLocationEle.addEventListener('click', function (event) {
+      var geoLocation = navigator.geolocation.getCurrentPosition(success, error);
+      console.log(geoLocation);
+    })
+
+    clipBoardEle.addEventListener('click', async function (event) {
+      var clipBoardContent = await navigator.clipboard.readText()
+      console.log(clipBoardContent);
+
+      await navigator.clipboard.writeText("JRD Tata");
+
+      clipBoardContent = await navigator.clipboard.readText()
+      console.log(clipBoardContent);
+    })
+
+    // setTimeout(function () {
+
+    // }, 5000);
+
+    // console.log("sdferf")
+  </script>
+</body>
+
+</html>
