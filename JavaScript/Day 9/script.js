@@ -41,7 +41,7 @@ function addCount() {
 
 
 
-function initCart() {
+var cartObj = (function () {
   var totalPrice = 0;
 
   var kdskdlc = 100;
@@ -49,13 +49,13 @@ function initCart() {
   function addProductPrice(amount) {
     totalPrice += amount;
     console.log(kdskdlc)
-    var addVariable = 10
-    function doSomething() {
-      console.log(addVariable);
-      console.log(totalPrice);
-    }
+    // var addVariable = 10
+    // function doSomething() {
+    //   console.log(addVariable);
+    //   console.log(totalPrice);
+    // }
 
-    return doSomething
+    // return doSomething
   }
 
   function removeProductPrice(amount) {
@@ -71,15 +71,14 @@ function initCart() {
     removePrice: removeProductPrice,
     getPrice: getPrice
   };
-}
+})();
 
-var cartObj = initCart();
 
-var doSomething = cartObj.addPrice(10);
+cartObj.addPrice(10);
 // addProductPrice(5)
 
 
-//Example
+// //Example MCQ
 var a = 1;
 function b() {
   console.log(a);
@@ -89,12 +88,16 @@ function b() {
     console.log("doSomething")
   }
 }
-
 b();
 console.log(a);
 
-//1 10
+// //1 10
 
-//10 1
+// //10 1
 
-//1 
+// //1 
+
+// MCQs
+console.log("110" - 2) //110 - 2 108
+
+console.log("sdfer" - 5) //-> Nan - 5 -> NaN
