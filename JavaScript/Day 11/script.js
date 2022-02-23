@@ -27,9 +27,11 @@ var product2 = {
 description.call(product2, "dcsdc", "dcsdc");
 
 function Person(name, age, address) {
+  //this = {}
   this.name = name;
   this.age = age;
   this.address = address
+  //return this
 }
 
 function Student(name, age, address, marks) {
@@ -134,7 +136,8 @@ let language = 'english'
 }
 
 {
-  const productName = "dress"
+  const productName = "dress";
+  // productName = "fefv" //not possible with const
   console.log(productName); //mobile
 }
 console.log(productName); //error
@@ -219,3 +222,13 @@ console.log(dummy_2); //15
 console.log(dummy_3); //ReferenceError
 var dummy = 30;
 
+
+// MCQS:
+
+console.log("hello" || "world")
+console.log("foo" && "bar")
+
+console.log(true || false)
+console.log(false || true)
+
+console.log(true && true)
