@@ -32,7 +32,19 @@ class Person {
   }
 }
 
+//adding properties and methods through prototype
+Person.prototype.phone = 1234
+Person.prototype.getName = function () {
+  console.log("Get Name Method Called")
+}
 
+Array.prototype.attainu = function () {
+  console.log("Attainu Method Called")
+}
+
+//Methods added in prototype will be accessible to all objects created.
+const sampleArr = [1, 2, 4]
+sampleArr.attainu();
 class Rectangle {
   constructor(l, b) {
     this._length = l;
