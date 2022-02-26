@@ -39,3 +39,32 @@ const stringObj = JSON.stringify(obj)
 fetch('https://jsonplaceholder.typicode.com/users/1')
   .then(response => response.json())
   .then(json => console.log(json))
+
+
+// var myObject = {
+//   foo: "bar",
+//   func: function () {
+//     var self = this;
+//     console.log("outer func:  this.foo = " + this.foo); //bar
+//     console.log("outer func:  self.foo = " + self.foo);//bar
+//     (function () {
+//       console.log("inner func:  this.foo = " + this.foo); //window - undefined
+//       console.log("inner func:  self.foo = " + self.foo); //bar
+//     }());
+//   }
+// };
+// myObject.func();
+
+
+// window.doSomething();
+
+// const result = (function(x) { //x - 1
+
+//   return (function(y) { //y - 2
+
+//       console.log(x); //- 1
+
+//   })(2)
+// })(1);
+
+
