@@ -8,7 +8,7 @@ getJokeBtn.addEventListener('click', (event) => {
 
   //fetch() returns a promise
   const fetchPromise = fetch('https://v2.jokeapi.dev/users/Any')
-
+  displayJokeTag.innerText = "Loading"
   //reached fulfilled/rejected state .then() will be invoked
   const responsePromise = fetchPromise.then((res) => {
     // console.log(res)
@@ -32,7 +32,9 @@ getJokeBtn.addEventListener('click', (event) => {
   })
 
 
-  // fetchResponse.catch()
+  responsePromise.catch((err) => {
+    console.log("Catch Error", err)
+  })
   // console.log(fetchResponse)
 })
 
