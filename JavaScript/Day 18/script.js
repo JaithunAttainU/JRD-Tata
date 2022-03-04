@@ -12,13 +12,16 @@ console.log(CARTCOUNT)
 console.log(COUNT)
 console.log(WISHLISTCOUNT)
 
+// convert JS Objects - JSON.stringify({ name: 'abc' })
+
+// JSON.parse("{name: 'abc'}")
 //localStorage and sessionStorage - Same syntax to add/get/delete
 //{key: value} pairs of type only strings, other data types are not allowed
 //Convert objects or other data types to strings
 
 //To Add to localStorage/sessionStorage
-localStorage.setItem("name", "ABC")
-localStorage.setItem("name", "10")
+localStorage.setItem("name", "ABC") 
+localStorage.setItem("age", "10")
 
 //To Get items from localStorage/sessionStorage
 localStorage.getItem("name")
@@ -31,3 +34,7 @@ localStorage.length
 
 //To remove particular item from localStorage/sessionStorage
 localStorage.removeItem("age")
+
+
+// Cookies have only 4kb of storage space mostly
+
