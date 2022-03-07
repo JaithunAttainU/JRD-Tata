@@ -21,6 +21,17 @@
 <body class="container d-flex w-75 align-items-center flex-column">
   <h1>To Do Application</h1>
   <div class="input-group input-group-lg mb-3">
+    <div class="dropdown">
+      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        All Task
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li class="dropdown-item" id="all">All Task</li>
+        <li class="dropdown-item" id="comp">Completed Task</li>
+        <li class="dropdown-item" id="pend">Pending Task</li>
+      </ul>
+    </div>
     <input id="input-text" class="form-control" type="text" placeholder="Enter a task">
     <button class="btn btn-primary" id="add-task-btn">Add Task</button>
   </div>

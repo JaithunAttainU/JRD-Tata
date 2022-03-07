@@ -90,3 +90,21 @@ const composedFunction = R.compose(toString, square, addOne)
 composedFunction(1)
 
 setTimeout(() => { }, 400)
+
+
+//default - GET, POST
+const fetchPro = fetch('https://jsonplaceholder.typicode.com/users/1') //Pending
+
+fetchPro.then((responseObj) => {
+  return responseObj.json()
+}).then((data) => {
+  console.log("Fulfilled")
+  console.log(data)
+}, (data) => {
+  console.log("Rejected")
+  console.log(data)
+}).catch((err) => {
+  console.log("Errror")
+  console.log(err)
+})
+
