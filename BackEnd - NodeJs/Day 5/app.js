@@ -1,7 +1,13 @@
 const express = require('express')
+const { writeFile } = require('fs')
 const app = express()
-const postMockData = require('./mock/posts')
+// const postMockData = require('./mock/posts')
 
+
+const jsonPostData = require('./mock/posts.json')
+// const bodyParser = require('body-parser')
+
+//body-parser
 //middleware
 app.use(express.json())
 
@@ -14,10 +20,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/posts', (req, res) => {
-
+// validation()
   const { userId, title } = req.query
 
-  let filteredPosts = postMockData.posts
+  if (!userId) {
+    // res.status(400)
+    res.status(400).send("Invalid Input, Please give UserId to fetch the posts")
+    return
+  }
+  let filteredPosts = jsonPostData.posts
 
   if (userId) {
     filteredPosts = filteredPosts.filter((post) => post.userId == Number(userId))
@@ -30,25 +41,37 @@ app.get('/posts', (req, res) => {
 })
 
 app.get('/posts/:postId', (req, res) => {
-
+  // validation()
   const { postId } = req.params
-  const filterByPostID = postMockData.posts.filter((post) => post.id == Number(postId))
+  const filterByPostID = jsonPostData.posts.filter((post) => post.id == Number(postId))
   if (filterByPostID.length == 0) {
-    res.send("No Data Found")
+    res.status(404).send("No Data Found")
   } else {
     res.send(filterByPostID[0])
   }
 })
 
 app.post('/posts', (req, res) => {
+  // validation()
+  console.log("Body", req.body)
   const postData = req.body
-  postMockData.posts.push(postData)
 
-  const response = {
-    ...postData,
-    status: 'Succesfull'
-  }
-  res.json(response)
+  //validate of user data - postData
+  // validateUserData(postData)
+  jsonPostData.posts.push(postData)
+
+  writeFile('./mock/posts.json', JSON.stringify(jsonPostData), (err) => {
+
+    if (err) {
+      res.status(500).send("Error adding data")
+      return
+    }
+    const response = {
+      ...postData,
+      status: 'Succesfull'
+    }
+    res.json(response)
+  })
 })
 
 // app.get('/home', (req, res) => {
@@ -74,5 +97,19 @@ const obj = { name: '34543', id: 2343, hobbies: { name: 'draw' } }
 console.log(obj.toString())
 console.log(JSON.stringify(obj))
 
+
+//to handle all http methods
+app.all('/', (req, res) => {
+
+})
+
+// app.get('/home', () => {
+// })
+
+// app.put('/home', () => {
+// })
+
+// app.delete('/home', () => {
+// })
 
 app.listen(8081)
