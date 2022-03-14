@@ -1,10 +1,16 @@
 
 const { readFileSync, createReadStream, createWriteStream, write } = require('fs')
+const csv = require('csv-parser')
 
 // Reading large files by this is not preferred
 const data = readFileSync('./enwik8.txt')
 console.log(data[0])
 
+//Read csv files using csv-parser
+const csvReader = createReadStream('./airtravel.csv').pipe(csv())
+csvReader.on('data', (data) => {
+  console.log(data)
+})
 
 //ReadStream
 const readStream = createReadStream('./enwik8.txt', { encoding: 'utf-8', highWaterMark: 1000 })

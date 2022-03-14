@@ -11,6 +11,9 @@ const jsonPostData = require('./mock/posts.json')
 //middleware
 app.use(express.json())
 
+//to read form data from html
+app.use(express.urlencoded({ extended: true }))
+
 //Virtual Path
 app.use(/*'/home', */express.static('public'/*, { index: false }*/))
 

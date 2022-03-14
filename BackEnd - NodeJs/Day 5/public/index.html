@@ -21,6 +21,69 @@
 
   <input id="input-text" type="text" placeholder="Enter a task">
   <button id="add-task-btn">Add Task</button>
+<form method="post" novalidate autocomplete="off" action="http://localhost:8081/posts">
+  <fieldset>
+    <legend>Search</legend>
+    <div>
+      <label for=" userName"> Enter Your Name:</label>
+      <input id="userName" type="text" name="userName" minlength="2" maxlength="5" required>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" name="email">
+    </div>
+
+    <div>
+      <label> Phone:</label>
+      <input type="tel" name="phone" readonly>
+    </div>
+
+    <div>
+      <label>
+        DOB:
+        <input type="date">
+      </label>
+    </div>
+
+    <div>
+      <label>Gender</label>
+      <input type="radio" name="gender" value="M" checked>Male
+      <input type="radio" name="gender" value="F">Female
+
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Other Details</legend>
+    <div>
+      <label> Hobbies:</label>
+      <input type="checkbox" name="hobbies" value="drawing" checked aria-checked="true"> Drawing
+      <input type="checkbox" name="hobbies" value="Reading"> Reading
+      <input type="checkbox" name="hobbies" value="dancing"> Dacing
+    </div>
+
+    <div>
+      <input type="range">
+    </div>
+
+    <div aria-describedby="xyz">
+      <label>Address</label>
+      <textarea></textarea>
+    </div>
+
+    <input type="file" id="myFile" name="filename">
+  </fieldset>
+
+
+  <div>
+    <!-- <input type="submit">
+      <input type="reset"> -->
+
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
 </body>
 
 </html>

@@ -23,6 +23,22 @@
       "id": 202,
       "title": "Sample title",
       "body": "Sample Body"
+    },
+    {},
+    {
+      "userId": 123,
+      "id": 201,
+      "title": "Sample title",
+      "body": "Sample Body"
+    },
+    {},
+    {
+      "userName": "",
+      "email": "",
+      "phone": "",
+      "gender": "M",
+      "hobbies": "drawing",
+      "filename": ""
     }
   ]
 }
