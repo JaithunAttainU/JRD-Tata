@@ -38,7 +38,12 @@ app.delete('/posts', middleware2, (req, res, next) => {
   res.send("Delete Posts")
 })
 
-// app.use(errorMiddleware())
+app.use(errorMiddleware)
+
+function errorMiddleware(err, req, res, next) {
+  res.send(err)
+}
+
 function authUser(req, res, next) {
 
   //checking data from Data

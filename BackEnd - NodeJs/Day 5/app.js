@@ -54,7 +54,7 @@ app.get('/posts/:postId', (req, res) => {
   }
 })
 
-app.post('/posts', (req, res) => {
+app.post('/posts', (req, res, next) => {
   // validation()
   console.log("Body", req.body)
   const postData = req.body
@@ -64,19 +64,27 @@ app.post('/posts', (req, res) => {
   jsonPostData.posts.push(postData)
 
   writeFile('./mock/posts.json', JSON.stringify(jsonPostData), (err) => {
-
+    err = true
     if (err) {
-      res.status(500).send("Error adding data")
-      return
+      next(new Error("Error adding data"))
+      // res.status(500).send("Error adding data")
+      // return
+    } else {
+      const response = {
+        ...postData,
+        status: 'Succesfull'
+      }
+      res.json(response)
     }
-    const response = {
-      ...postData,
-      status: 'Succesfull'
-    }
-    res.json(response)
   })
 })
 
+
+app.use(erroMiddleWare)
+
+function erroMiddleWare(err, req, res, next) {
+  res.status(500).send(err.message)
+}
 // app.get('/home', (req, res) => {
 //   res.sendFile(`${__dirname}/public/index.html`)
 // })

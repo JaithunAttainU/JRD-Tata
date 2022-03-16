@@ -1,0 +1,21 @@
+<%- include('partials/header', {documentName: 'Users' });%>
+  <%users.forEach(function(user) {%>
+    <div>
+      Name: <%= user.username %>
+      Address: <%= user.address %>
+    </div>
+  <%})%>
+<%- include('partials/footer');%>
+
+
+<!-- 	
+  <p>
+    Name: <%= username %>
+    Age: <%= age %>
+  </p>
+  <%if(username) {%>
+    <div>Hello <%= username %></div>
+  <%} else {%>
+    <div>Hello User</div>
+  <%}%>
+-->

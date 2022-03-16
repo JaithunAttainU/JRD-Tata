@@ -1,0 +1,8 @@
+<%- include('partials/header', {documentName: 'Products' });%>
+  <%products.forEach(function(product) {%>
+    <div>
+      Name: <%= product.productName %>
+        Price: <%= product.price %>
+    </div>
+    <%})%>
+<%- include('partials/footer');%>
