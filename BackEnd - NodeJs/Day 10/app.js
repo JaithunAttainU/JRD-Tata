@@ -81,3 +81,7 @@ app.get('/products', (req, res) => {
   res.send(productMockData.products)
 })
 app.listen(8081)
+
+//Interview Question
+// const resultObj = calc.add(5).multiply(2).sub(1).divide(2)
+// console.log(resultObj.total)
