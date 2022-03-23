@@ -83,5 +83,29 @@ app.get('/products', (req, res) => {
 app.listen(8081)
 
 //Interview Question
-// const resultObj = calc.add(5).multiply(2).sub(1).divide(2)
-// console.log(resultObj.total)
+const resultObj = calc.add(5).multiply(2).sub(1).divide(2)
+console.log(resultObj.total)
+
+//Answer
+
+const calc = {
+  total: 0,
+  add: function (val) {
+    this.total += val;
+    return this;
+  },
+  mul: function (val) {
+    this.total *= val;
+    return this;
+  },
+  sub: function (val) {
+    this.total -= val;
+    return this;
+  },
+  div: function (val) {
+    this.total /= val;
+    return this;
+  }
+};
+const resObj = calc.add(5).mul(2).sub(1).div(2)
+console.log(resObj.total)
