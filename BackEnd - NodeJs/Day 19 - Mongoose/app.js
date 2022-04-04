@@ -6,6 +6,8 @@ const logger = require('morgan')
 const dotenv = require('dotenv')
 dotenv.config()
 
+var cors = require('cors')
+
 //connecting to DB
 const { initMongoDB } = require('./db')
 initMongoDB()
@@ -15,6 +17,10 @@ const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
 
 const app = express();
+app.use(cors({
+  origin: ['https://cloud.mongodb.com', 'https://www.section.io'],
+  methods: 'POST'
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
