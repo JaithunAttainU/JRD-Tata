@@ -3,8 +3,56 @@ const ReviewModel = require('../models/reviews')
 
 const getMovies = async (req, res) => {
   try {
-    //Get Data from DB
-    // const movieData = await MovieModel.find({ year: 2015 }).skip(3).limit(2)
+    //1. Get Data from DB
+    const movieData = await MovieModel.find({ year: 2015 }).count()
+
+    //2. Find all the movies where the (genres is comedy AND year is 2016) OR IMDB rating is equal to 7 (11 Results)
+    const firstQuery = {
+      genres: ["comedy"],
+      year: 2016
+    }
+
+    const secondQuery = {
+      "imdb.rating": 7
+    }
+    const movieData = await MovieModel.find({
+      $or: [firstQuery, secondQuery]
+    })
+
+
+    //3. Write a MongoDB query to display any 5 movies with both the condition: genres “Adventure” and cast “Tom Hanks”.
+
+    const movieData = await MovieModel.find({
+      $and: [{
+        genres: {
+          $all: ["Adventure"]
+        }
+      }, {
+        cast: {
+          $all: ["Tom Hanks"]
+        }
+      }]
+    }).limit(5)
+
+    //4. Write a MongoDB query to display most awards won by a movie (use aggregate function with $max operator).
+    //2015c- 5
+    const movieData = await MovieModel.aggregate([{
+      $group: {
+        _id: "",
+        maxWins: {
+          $max: "$awards.wins"
+        }
+      }
+    }])
+
+    const movieData = await MovieModel.aggregate([{
+      $match: {
+        $or: [firstQuery, secondQuery]
+      }
+    }]
+    )
+    const movieData = await MovieModel.find(secondQuery);
+    console.log(movieData.length)
 
     const movieData = await MovieModel.aggregate([
       {
