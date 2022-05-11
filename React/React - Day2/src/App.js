@@ -7,8 +7,8 @@ function App() {
   return (
     <React.Fragment>
       <YoutubeCard />
-      <YoutubeCard />
-      <YoutubeCard />
+      {/* <YoutubeCard />
+      <YoutubeCard /> */}
     </React.Fragment>
   )
 }
