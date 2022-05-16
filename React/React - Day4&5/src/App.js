@@ -22,8 +22,8 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {images.map(img => {
-          return <CartCounter imageUrl={img} count={this.state.count} increment={this.increment} decrement={this.decrement} />
+        {images.map((img, index) => {
+          return <CartCounter key={index} imageUrl={img} count={this.state.count} increment={this.increment} decrement={this.decrement} />
         })}
       </React.Fragment>
     )
