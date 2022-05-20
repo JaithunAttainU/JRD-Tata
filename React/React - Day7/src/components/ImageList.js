@@ -13,4 +13,10 @@ function ImageList(props) {
   )
 }
 
+ImageList.defaultProps = {
+  images: [],
+  users: [],
+  showUsers: false
+}
+
 export default ImageList;
