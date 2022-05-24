@@ -4,9 +4,9 @@ const updateCounter = (prevCount = 0, action) => {
   //based on action type define the operations
   switch (action.type) {
     case 'INCREMENT':
-      return prevCount + 1
+      return prevCount + action.payload
     case 'DECREMENT':
-      return prevCount - 1
+      return prevCount - action.payload
     default:
       return prevCount
   }
