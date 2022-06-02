@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid } from '@material-ui/core'
 import VideoCard from './VideoCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { videosAction } from '../../actions/videos'
 
 export default function Videos() {
-  const dummyVideos = [1, 2, 3, 4, 5, 6, 7]
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(videosAction())
+  }, [dispatch])
+
+  const videos = useSelector((state) => state.videos)
   return (
     <div>
       <Grid container spacing={1}>
-        {dummyVideos.map((videoItem, i) => {
-          return <VideoCard key={i} />
+        {videos.map((videoItem, i) => {
+          return <VideoCard key={i} video={videoItem} />
         })}
       </Grid>
 
