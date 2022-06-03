@@ -1,22 +1,62 @@
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import { AccountCircle, ExitToApp } from '@material-ui/icons';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { useGoogleLogin } from '@react-oauth/google';
+import { googleLogout } from '@react-oauth/google';
+import { userLoginAction, userLogoutAction } from '../../actions/auth';
+import { getUserInfoAction, removeUserInfoAction } from '../../actions/profile';
 
-import googleConfig from '../../config.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
+const userInfo = {
+  firstName: 'Akhilesh',
+  lastName: 'Brian',
+  emailId: 'akhilesh@gmail.com',
+  imageUrl: ''
+}
 const AuthButtons = () => {
 
-  const onLogin = (response) => {
-    console.log("Login", response);
-  }
+  const dispatch = useDispatch()
+  const auth = useSelector((state) => state.auth)
 
-  const onLogout = () => {
-    console.log("logout")
-  }
+  useEffect(() => {
+    let userInfo = localStorage.getItem('userInfo')
+    if (userInfo) {
+      userInfo = JSON.parse(userInfo)
+      dispatch(userLoginAction())
+      dispatch(getUserInfoAction(userInfo))
+    }
+  }, [dispatch])
 
+
+  const login = useGoogleLogin({
+    onSuccess: tokenResponse => {
+      //mocking user info on successful login
+      dispatch(getUserInfoAction(userInfo))
+      dispatch(userLoginAction())
+      localStorage.setItem('userInfo', JSON.stringify(userInfo))
+      localStorage.setItem('access_token', tokenResponse.access_token)
+    },
+    onError: response => {
+      dispatch(userLogoutAction())
+      dispatch(removeUserInfoAction())
+      localStorage.removeItem('userInfo')
+      localStorage.removeItem('access_token')
+    }
+  });
+
+  const logout = () => {
+    googleLogout()
+    dispatch(userLogoutAction())
+    dispatch(removeUserInfoAction())
+    localStorage.removeItem('userInfo')
+    localStorage.removeItem('access_token')
+  }
   return (
     <>
+      {auth &&
+        <>
       <IconButton
         component={Link}
         to="/profile"
@@ -28,43 +68,32 @@ const AuthButtons = () => {
       >
         <AccountCircle />
       </IconButton>
-      <GoogleLogout
-        clientId={googleConfig.clientId}
-        buttonText="Logout"
-        onLogoutSuccess={onLogout}
-        render={renderProps => (
-          <IconButton
+
+        <IconButton
             aria-label="logout user"
             aria-controls="primary-search-logout-menu"
             aria-haspopup="true"
             color="inherit"
-            onClick={renderProps.onClick}
+          onClick={() => logout()}
           // disabled={renderProps.disabled}
           >
             <ExitToApp />
           </IconButton>
-        )}
-      />
-      <GoogleLogin
-        clientId={googleConfig.clientId}
-        onSuccess={onLogin}
-        onFailure={onLogin}
-        buttonText="Login"
-        isSignedIn={true}
-        render={renderProps => (
+
+        </>}
+
+      {!auth &&
           <IconButton
             aria-label="login user"
             aria-controls="primary-search-login-menu"
             aria-haspopup="true"
             color="inherit"
-            onClick={renderProps.onClick}
+          onClick={() => login()}
             // disabled={renderProps.disabled}
             size="small"
           >
             Login
-          </IconButton>
-        )}
-      />
+        </IconButton>}
     </>
   )
 };

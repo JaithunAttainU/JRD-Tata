@@ -2,7 +2,7 @@ import axios from 'axios'
 import keys from '../config.json'
 import { loaderStartAction, loaderStopAction } from './loader'
 
-export const videosAction = () => {
+export const videosAction = (searchParam) => {
   return async function (dispatch, getState) {
     dispatch(loaderStartAction())
     const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
@@ -10,7 +10,7 @@ export const videosAction = () => {
         part: 'snippet',
         maxResults: 50,
         key: keys.youtubeKey,
-        q: ''
+        q: searchParam ? searchParam : ''
       }
     })
 
