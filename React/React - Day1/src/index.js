@@ -17,7 +17,7 @@ function App() {
         countRef.current = countRef.current + 1 //synchronous
         console.log(countRef.current)
 
-      }}>ClickMe{countRef.current}</button>
+      }}>ClickMe</button>
     </div>
   );
 }
